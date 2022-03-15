@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+    <a th:href="@{/manager/showUsers}">首页</a>
+
+    <form method="post" th:object="${modelTeacher}">
+        <center>
+            教师名<input th:field="*{teacherName}" name="teacherName" type="text"><br>
+            院系号<input th:field="*{collegeNumber}" name="collegeNumber" type="text"><br>
+            <input type="submit" value="提交">
+        </center>
+    </form>
+
+    <div th:if="${colleges != null}">
+        <div th:if="${colleges.iterator().hasNext()}">
+            <center>
+                学院号参见下
+                <li th:each="arr : ${colleges.toArray}">
+                    <b th:text="${arr.getCollegeNumber()}"></b>
+                    <b th:text="${arr.getCollegeName()}"></b>
+                </li>
+            </center>
+        </div>
+    </div>
+</body>
+</html>

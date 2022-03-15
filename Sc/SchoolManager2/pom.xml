@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>Sc</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+
+  <name>Sc Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+
+    <spring-version>5.3.9</spring-version>
+    <hibernate-version>5.4.4.Final</hibernate-version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+
+    <!-- spring对orm的支持jar -->
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-orm</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+    <!--jpa-->
+    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-jpa</artifactId>
+      <version>2.6.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-core</artifactId>
+      <version>5.6.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>5.6.1</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
+      <version>5.6.1</version>
+    </dependency>
+
+
+
+    <!--
+        数据校验jsr303所需的依赖包， springmvc仅仅提供了校验的支持而没有提供实现， 需要添加给spring添加三个jar包来提供类实现
+        均为 ： javax.validation, org.hibernate-validation, javax.el
+        一下列出了三个包的maven下载路径
+        -->
+
+    <!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>2.0.1.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.el</groupId>
+      <artifactId>el-api</artifactId>
+      <version>2.2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>6.1.7.Final</version>
+    </dependency>
+
+
+    <!-- 前端视图的thymeleaf -->
+    <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf</artifactId>
+      <version>3.0.3.RELEASE</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf-spring4</artifactId>
+      <version>3.0.3.RELEASE</version>
+    </dependency>
+
+    <!--
+    下面两个依赖用于消除掉
+    Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+    SLF4J: Defaulting to no-operation (NOP) logger implementation
+    ，不知有什么问题会发生，贴出解决问题的论坛网页，便于以后重新查看
+    解决方法：https://stackoverflow.com/questions/7421612/slf4j-failed-to-load-class-org-slf4j-impl-staticloggerbinder
+    对于这个问题的官方回复：http://www.slf4j.org/codes.html#StaticLoggerBinder
+    -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.6.4</version>
+    </dependency>
+
+
+    <!--https://mvnrepository.com/artifact/org.hibernate/hibernate-core-->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate-version}</version>
+    </dependency>
+
+    <!-- 数据源basicDataBase -->
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-dbcp2</artifactId>
+      <version>2.7.0</version>
+    </dependency>
+
+    <!-- redis需要的依赖-->
+    <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-redis -->
+    <dependency>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-redis</artifactId>
+      <version>2.1.8.RELEASE</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+
+
+    <!--
+        Error:(28, 37) java: 无法访问com.fasterxml.jackson.databind.JavaType
+        找不到com.fasterxml.jackson.databind.JavaType的类文件
+
+        缺少相应依赖 下三个为相应依赖
+        jackson json？
+    -->
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.12.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>2.12.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.12.3</version>
+    </dependency>
+
+    <!-- 阿帕奇公司的切面实现 -->
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.7</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- 远程调用hessian的依赖 -->
+    <!-- https://mvnrepository.com/artifact/com.caucho/hessian -->
+    <dependency>
+      <groupId>com.caucho</groupId>
+      <artifactId>hessian</artifactId>
+      <version>4.0.63</version>
+    </dependency>
+
+    <!-- 中间件activemq -->
+    <dependency>
+      <groupId>org.apache.activemq</groupId>
+      <artifactId>activemq-all</artifactId>
+      <version>5.11.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jms</artifactId>
+      <version>${spring-version}</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+
+
+    <dependency>
+    <groupId>org.springframework.amqp</groupId>
+    <artifactId>spring-rabbit</artifactId>
+    <version>2.4.2</version>
+  </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>Sc</finalName>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>3.2.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>8</source>
+          <target>8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

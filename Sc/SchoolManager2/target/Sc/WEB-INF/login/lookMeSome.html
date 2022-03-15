@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a th:href="@{/index/Index}">首页</a>
+    <div th:if="${#request.getCookies() != null}" th:each="cookies : ${#request.getCookies()}">
+        <a th:href="@{/index/showTeacher(userId=${cookies.getValue().split(':::')[0]})}"
+           th:text="${cookies.getValue().split(':::')[2]}"></a>
+
+        <div th:if="${cookies.getValue().split(':::')[1].equals('root')}">
+            <a th:href="@{/manager/showUsers}" th:text="查看教师及其用户"></a>
+            <a th:href="@{/manager/showColleges}" th:text="查看学院">查看学院</a>
+            <a th:href="@{/manager/showCoursesColleges}" th:text="查看课程">查看课程</a>
+            <a th:href="@{/}" th:text="查看教室">查看教室</a>
+        </div>
+    </div>
+    <hr>
+
+    <div th:if="${teacher != null}">
+        姓名:<b th:text="${teacher.getTeacherName()}"></b>
+        学院是<b th:text="${teacher.getCollegeNumber().getCollegeName()}"></b>
+        账户是<b th:text="${user.getUserNumber()}"></b>
+        权限是<b th:text="${user.getCompetence()}"></b>
+        <a th:href="@{/index/logout}">注销</a>
+    </div>
+</body>
+</html>

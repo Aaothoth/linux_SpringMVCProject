@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a th:href="@{/manager/showUsers}">首页</a>
+    <div th:if="${#request.getCookies() != null}" th:each="cookies : ${#request.getCookies()}">
+        <a th:href="@{/index/showTeacher(userId=${cookies.getValue().split(':::')[0]})}"
+           th:text="${cookies.getValue().split(':::')[2]}"></a>
+
+        <div th:if="${cookies.getValue().split(':::')[1].equals('root')}">
+            <a th:href="@{/manager/showUsers}" th:text="查看教师及其用户"></a>
+            <a th:href="@{/manager/showColleges}" th:text="查看学院">查看学院</a>
+            <a th:href="@{/manager/showCoursesColleges}" th:text="查看课程">查看课程</a>
+            <a th:href="@{/manager/showClassroom}" th:text="查看教室">查看教室</a>
+        </div>
+    </div>
+    <hr>
+
+    <div th:if="${colleges != null}">
+        <div th:if="${colleges.iterator().hasNext()}">
+            <li th:each="arr : ${colleges.toArray}">
+                <a th:text="${arr.getCollegeName()}"
+                   th:href="@{/manager/showCollegeTeachers(cId=${arr.getCollegeNumber()})}"></a>
+            </li>
+        </div>
+    </div>
+</body>
+</html>

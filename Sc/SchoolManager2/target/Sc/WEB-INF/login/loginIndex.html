@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:object="${user}" method="post">
+        <center>
+            账号：<input th:field="*{userNumber}" name="userNumber" type="text"><br>
+            密码：<input th:field="*{password}" name="password" type="password"><br>
+            <input type="submit" value="提交">
+        </center>
+    </form>
+</body>
+</html>

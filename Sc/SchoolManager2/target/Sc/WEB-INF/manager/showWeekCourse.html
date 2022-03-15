@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <a th:href="@{/manager/showUsers}">首页</a>
+    <div th:if="${#request.getCookies() != null}" th:each="cookies : ${#request.getCookies()}">
+        <a th:href="@{/index/showTeacher(userId=${cookies.getValue().split(':::')[0]})}"
+           th:text="${cookies.getValue().split(':::')[2]}"></a>
+
+        <div th:if="${cookies.getValue().split(':::')[1].equals('root')}">
+            <a th:href="@{/manager/showUsers}" th:text="查看教师及其用户"></a>
+            <a th:href="@{/manager/showColleges}" th:text="查看学院">查看学院</a>
+            <a th:href="@{/manager/showCoursesColleges}" th:text="查看课程">查看课程</a>
+            <a th:href="@{/}" th:text="查看教室">查看教室</a>
+        </div>
+    </div>
+    <hr>
+
+    <!-- TODO 使用list foreach 来降低代码量 将getcourseday存入list中 然后 for(temp temp1 : listTemp)-->
+    <div th:if="${week != null}">
+        <table>
+            <tr>
+                <td>周一:</td>
+                <td>
+                    <p th:text="${week.getCourseDay1().getQuartersOneTwo()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay1().getQuartersOneTwo()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay1().getQuartersThreeFour()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay1().getQuartersThreeFour()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay1().getQuartersFiveSix()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay1().getQuartersFiveSix()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay1().getQuartersSevenEight()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay1().getQuartersSevenEight()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+            </tr>
+
+            <tr>
+                <td>周二:</td>
+                <td>
+                    <p th:text="${week.getCourseDay2().getQuartersOneTwo()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay2().getQuartersOneTwo()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay2().getQuartersThreeFour()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay2().getQuartersThreeFour()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay2().getQuartersFiveSix()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay2().getQuartersFiveSix()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay2().getQuartersSevenEight()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay2().getQuartersSevenEight()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+            </tr>
+
+            <tr>
+                <td>周三:</td>
+                <td>
+                    <p th:text="${week.getCourseDay3().getQuartersOneTwo()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay3().getQuartersOneTwo()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay3().getQuartersThreeFour()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay3().getQuartersThreeFour()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay3().getQuartersFiveSix()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay3().getQuartersFiveSix().getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay3().getQuartersSevenEight()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay3().getQuartersSevenEight()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+            </tr>
+
+            <tr>
+                <td>周四:</td>
+                <td>
+                    <p th:text="${week.getCourseDay4().getQuartersOneTwo()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay4().getQuartersOneTwo()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay4().getQuartersThreeFour()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay4().getQuartersThreeFour()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay4().getQuartersFiveSix()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay4().getQuartersFiveSix()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay4().getQuartersSevenEight()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay4().getQuartersSevenEight()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+            </tr>
+
+            <tr>
+                <td>周五:</td>
+                <td>
+                    <p th:text="${week.getCourseDay5().getQuartersOneTwo()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay5().getQuartersOneTwo()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay5().getQuartersThreeFour()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay5().getQuartersThreeFour()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay5().getQuartersFiveSix()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay5().getQuartersFiveSix()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+
+                <td>
+                    <p th:text="${week.getCourseDay5().getQuartersSevenEight()
+                        .getCourseNumber().getCourseName()}"></p>
+                    <b th:text="${week.getCourseDay5().getQuartersSevenEight()
+                        .getTeacherNumber().getTeacherName()}"></b>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
